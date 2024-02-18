@@ -48,8 +48,9 @@
 </style>    
 <script>
   window.addEventListener('keydown', function(e) {
-  if(e.keyCode == 32 ) {
-    return true//e.preventDefault();
+    var $focusElem = $(":focus");
+  if(e.keyCode == 32  &&(!$focusElem.is("input"))) {
+    e.preventDefault();
   }
 });
 </script>
