@@ -416,7 +416,7 @@
         // [spacebar] should trigger button press, leave it alone
         if ((isNodeName(target, 'button') ||
             isNodeName(target, 'input') && buttonTypes.test(target.type)) &&
-            event.keyCode === key.spacebar) {
+            event.keyCode === key.enter) {
             return true;
         }
 
