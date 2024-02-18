@@ -448,7 +448,7 @@
             case key.down:
                 y = options.arrowScroll;
                 break;
-            case key.spacebar: // (+ shift)
+            case key.pagedown: // (+ shift)
                 shift = event.shiftKey ? 1 : -1;
                 y = -shift * clientHeight * 0.9;
                 break;
