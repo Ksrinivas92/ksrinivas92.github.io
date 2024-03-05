@@ -30,6 +30,34 @@
 <!--Delete from here to stop chatbot/-->
 <!-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------/-->
 <script>
+// new speech recognition object
+var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+var recognition = new SpeechRecognition();
+            
+// This runs when the speech recognition service starts
+recognition.onstart = function() {
+    console.log("We are listening. Try speaking into the microphone.");
+};
+
+recognition.onspeechend = function() {
+    // when user is done speaking
+    recognition.stop();
+}
+              
+// This runs when the speech recognition service returns result
+recognition.onresult = function(event) {
+    var transcript = event.results[0][0].transcript;
+    var confidence = event.results[0][0].confidence;
+  const dfMessenger = document.querySelector('df-messenger');
+  dfMessenger.sendQuery(transcript);
+};
+              
+// start recognition
+recognition.start();
+</script>
+    
+    
+  <script>
   window.addEventListener('df-response-received', (event) => {
   //event.preventDefault(); // Dialogflow Messenger won't handle the response.
 
