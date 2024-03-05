@@ -71,6 +71,7 @@ recognition.onresult = function(event) {
   event.detail.data.messages.forEach(message => {
     if (message.type === 'text') {
       let utterance = new SpeechSynthesisUtterance(message.text);
+      utterance.lang='en-in';
       speechSynthesis.speak(utterance);
     }
   });
