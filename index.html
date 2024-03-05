@@ -52,12 +52,18 @@ recognition.onresult = function(event) {
   dfMessenger.sendQuery(transcript);
 };
               
-// start recognition
-recognition.start();
 </script>
     
     
   <script>
+    window.addEventListener('df-chat-open-changed', (event) => {
+    if(!event.detail.isOpen)
+    {
+          
+    // start recognition
+    recognition.start();
+    }
+});
   window.addEventListener('df-response-received', (event) => {
   //event.preventDefault(); // Dialogflow Messenger won't handle the response.
 
